@@ -1,0 +1,518 @@
+html {
+    box-sizing: border-box;
+    /*esto ayuda a darle tamaño a los botones ya que de por si, no funciona el tamaño*/
+    font-size: 62.5%;
+    /*Reset para REMS - 62.5% =10 px de 16px*/
+}
+
+*,
+*:before,
+*:after {
+    /*esto ayuda a darle tamaño a los botones ya que de por si, no funciona el tamaño*/
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+
+/*Globales*/
+
+img {
+    max-width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    /* = 1200 px*/
+    margin: 0 auto;
+    /*tambien margin-left:auto y margin-right*/
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+
+/*Utilidades*/
+
+.seccion {
+    /* alinea el contenedor con el resto contenido*/
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300 {
+    font-weight: 400;
+    /*el grosor(?*/
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.d-block {
+    display: block!important;
+    /*extiende el boton*/
+    /* el important ignora el sistema de cascada dejando como importante esta linea y no la de inline-block de mas abajo*/
+}
+
+.contenido-centrado {
+    /*se utiliza en anuncio blog contacto*/
+    max-width: 800px;
+}
+
+
+/* BOTONES*/
+
+.boton {
+    color: white;
+    font-weight: 700;
+    /*el grosor*/
+    text-decoration: none;
+    /*le quitamos las lineas de abajo*/
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    /*separacion hacia dentro con 1 arriba y abajp y 3 a los lados*/
+    text-align: center;
+    /*gracias a eñ codigo de arriba box-sizing aqui podemos modificar el tamañ del botom*/
+    margin-top: 3rem;
+    display: inline-block;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+    /*cuando este encima del botom el cursor va a combiar*/
+}
+
+.boton-naranja {
+    background-color: #e08709;
+}
+
+.boton-verde {
+    background-color: #71b100;
+}
+
+
+/* HEADER */
+
+.site-header {
+    /*el header de nosotros*/
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
+.site-header.inicio {
+    background: url(../img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+    /*forza que tome todo el especio disponible respetando las proporciones */
+    height: 100vh;
+    /* height: 100vh; toma la altura segun el tamaño de la pantalla*/
+    min-height: 60rem;
+    /*cantidad minima de pixeles que se veran */
+}
+
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    /*Espacio hacia dentro del elemento*/
+    max-width: 60rem;
+    line-height: 2;
+}
+
+.barra {
+    display: flex;
+    /*posiciona lo demas al lado derecho(nosotros, anuncios, etc.)*/
+    justify-content: space-between;
+    /*alinea contenido horizontal*/
+    align-items: center;
+    /*alinea verticalmente*/
+    padding-top: 3rem;
+    /*padding hace separacion con elemente al contrario de margin que el espacio lo en px es por fuera*/
+}
+
+
+/*Navegacion*/
+
+.navegacion a {
+    color: #ffffff;
+    text-decoration: none;
+    /*le quita las lineas de abajo que trae por defecto*/
+    font-size: 1.8rem;
+    /*= a 18px*/
+    margin-right: 2rem;
+}
+
+.navegacion a:hover {
+    /*(seudo selector)le cambia el color cuando el raton pasa por encima*/
+    color: #03345E
+}
+
+.navegacion a:last-of-type {
+    /*seleccionamos el ultimo elemento de 'navegacion'*/
+    margin-right: 0;
+    /*0 para que no tenga espacio sobrante*/
+}
+
+
+/*icono nosotros*/
+
+.iconos-nosotros {
+    display: flex;
+    justify-content: space-between;
+    /*espacio alineado ente elementos*/
+}
+
+.icono {
+    flex-basis: calc(33.3% - 1rem);
+    /*tamaño(a los 33.3%de px le restamos 10 px*/
+    text-align: center;
+}
+
+.icono h3 {
+    text-transform: uppercase;
+    /*MAYUSCULAS*/
+}
+
+
+/*ANUNCIOS*/
+
+.contenedor-anuncios {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /*separa los objetos para que se vea como abajo lo indica 3 en fila(esto arregla "nosotros que el contenido se ves 3 y 3 y no 6 juntos")*/
+}
+
+.anuncio {
+    /*flex: 0 0  calc(33.3% - 1rem); (Otra manera de hacer lo de abajo)*/
+    flex-grow: 0;
+    /*para que el contenido cresca si es posible*/
+    flex-shrink: 0;
+    /*para que el contenido se haga mas pequeño si es posible(como en "nosotros" se pone 0 para que no se encoja)*/
+    flex-basis: calc(33.3% - 1rem);
+    /*tamaño(a los 33.3%de px le restamos 10 px*) esta es la base del contenido/
+/*	border-style: solid; EL ESTILO DEL BORDE
+	border-color: #b5b5b5;
+	border-width: 1px; ESTOS 3 EN UNA SOLA LINEA como esta abajo*/
+    border: 2px solid #b5b5b5;
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+}
+
+.contenido-anuncio {
+    padding: 2rem;
+    /* AQUI MOVEMOS HACIA ADENTRO EL CONTENIDO, EL RESULTADO UN TEXTO MAS CENTRADO Y LEJOS DE LOS BORDES*/
+}
+
+.contenido-anuncio h3,
+.contenido-anuncio p {
+    margin: 0;
+    /* LE QUITAMOS EL ESPACIO EXTRA QUE POR DEFECTO EL NAVEGADOR NOS COLOCA*/
+}
+
+.precio {
+    color: #71b100;
+    font-weight: 700;
+    /*el grosor*/
+}
+
+.iconos-caracteristicas {
+    list-style: none;
+    /*le quitamos el punto que lleva cada elemento de la lista*/
+    padding: 0;
+    /*le quitamos el espacio que sobro al quitarle el punto*/
+    display: flex;
+    /*juntamos los elementos de la lista uno alado del otro*/
+    justify-content: space-evenly;
+    flex: 1;
+    /*para que los objetos no se junten en caso que lo hagan*/
+    max-width: 500px;
+    /*que el tamaño de separacion no sobrepase los 500 (en el caso de anuncio)*/
+}
+
+.iconos-caracteristicas li {
+    /*flex: 1;*/
+    /*divide todos los pixeles segun la cantidad de elementos(aqui separa cada elemento con la misma cantidad de px)*/
+    display: flex;
+}
+
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+}
+
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*CONTACTO HOME*/
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    /*centrada por x e y*/
+    background-size: cover;
+    /*ajusta la imagen*/
+    height: 40rem;
+    /*altura */
+    display: flex;
+    /*centra*/
+    align-items: center;
+    /**centra verticalmente*/
+}
+
+.contenido-contacto {
+    flex: 1;
+    /*divide todos los pixeles segun la cantidad de elementos(se utiliza para extender los elementos al maximo)*/
+    color: #ffffff;
+}
+
+.contenido-contacto p {
+    font-size: 1.8rem;
+}
+
+
+/*SECCION INFERIOR*/
+
+.seccion-inferior {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion-inferior .blog {
+    flex-basis: 60%;
+    /*toma 60%*/
+}
+
+.seccion-inferior .testimoniales {
+    flex-basis: calc(40% - 2rem);
+    /*toma el 20 restante y le restamos 2 rem*/
+}
+
+.entrada-blog {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    /*le da un espacio hacia abajo a ambos objetos*/
+}
+
+.entrada-blog:last-of-type {
+    margin-bottom: 0;
+    /*la quita el espacio al hacia abajo al ultimo de los objetos*/
+}
+
+.entrada-blog .imagen {
+    flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada {
+    flex-basis: calc(60% - 3rem);
+}
+
+.texto-entrada a {
+    color: #000000;
+    /*el enlace le cambia el color asi que se lo volvemos a cambiar al titulo*/
+    text-decoration: none;
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.texto-entrada h4::after {
+    /*crea un elemente(seudo elemento) despues del h4 en esta ocasion se crea la linea debajo del texto*/
+    content: '';
+    display: block;
+    width: 15rem;
+    height: .5rem;
+    background-color: brown;
+    margin-top: 1rem;
+}
+
+.texto-entrada span {
+    color: royalblue;
+}
+
+
+/*TESTIMONIALES*/
+
+.testimonial {
+    background-color: #71b100;
+    font-size: 2.4rem;
+    /*tamaño de las letras*/
+    padding: 2rem;
+    /* AQUI MOVEMOS HACIA ADENTRO EL CONTENIDO, EL RESULTADO UN TEXTO MAS CENTRADO Y LEJOS DE LOS BORDES*/
+    color: #ffffff;
+    /*color de letras*/
+    border-radius: 2rem;
+    /*bordea las esquinas de una imagen cuadrada(bordea las 4 esquinas en este caso)*/
+}
+
+.testimonial p {
+    text-align: right;
+}
+
+.testimonial blockquote::before {
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    /*ancho*/
+    height: 4rem;
+    /*alto se requieren las 2 medidas para ver la imagen*/
+    position: absolute;
+    /*absolute ayuda a mover la imagen junto con relative*/
+    left: -2rem;
+    /*movemos hacia afuera del texto*/
+    bottom: 21.5rem;
+}
+
+.testimonial blockquote {
+    /*relative ayuda a mover la imagen junto con absolute*/
+    position: relative;
+    padding-left: 5rem;
+    /*separamos del borde izquierdo el texto*/
+    font-weight: 300;
+    /*reducimos el grosor del texto*/
+}
+
+
+/*FOOTER*/
+
+.site-footer {
+    background-color: #333333;
+    margin: 0;
+}
+
+.contenedor-footer {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    /*justify-content alinia horizontalmente*/
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
+}
+
+
+/*----INTERNA-----*/
+
+
+/*NOSOTROS*/
+
+.contenido-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*tambien es 50% 50%*/
+    grid-column-gap: 2rem;
+    /*sirve para separar los elementos*/
+}
+
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+
+
+/*ANUNCIO*/
+
+.resumen-propiedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*alinia vertical mente/mientras justify-content alinia horizontalmente */
+}
+
+
+/*CONTACTO*/
+
+.contacto p {
+    font-size: 1.4rem;
+    color: #575757;
+    margin: 2 0 0 0;
+}
+
+legend {
+    font-size: 2rem;
+    /*agrandamos "informacion personal"*/
+    color: #575757;
+}
+
+label {
+    font-weight: 700;
+    /*el grosor?*/
+    text-transform: uppercase;
+    /*TRANFORMACION A MAYUSCULAS*/
+    display: block;
+    /*hace que tomen todo el espacio disponible, para que no esten cerca los objetos entre si*/
+}
+
+input:not([type="submit"]),
+textarea,
+select {
+    /*text area es el mensaje, se agrega por separado*/
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    /*separo los input*/
+    border: none;
+    /*eliminamos el borde*/
+    border-radius: 1rem;
+    color: navy;
+    /*cambio el color del txt*/
+}
+
+input[type="radio"] {
+    width: auto;
+    /*toma unica mente el espacio que requiere("radio" se veia un poco extraño porque tomaba espacio demas)*/
+}
+
+select {
+    /* en caso del que el select no se apliquen cambios, usaremos este "prefijo"*/
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    height: 20rem;
+}
+
+.forma-contacto {
+    max-width: 30rem;
+    /*le aplicamos menos px para que sea mas pequeño*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
