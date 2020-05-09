@@ -99,6 +99,7 @@ h4 {
 .boton:hover {
     cursor: pointer;
     /*cuando este encima del botom el cursor va a combiar*/
+    color: #333333;
 }
 
 .boton-naranja {
